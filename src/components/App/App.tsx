@@ -46,9 +46,7 @@ function App() {
 
       {totalVotes > 0 ? (
         <VoteStats
-          good={votes.good}
-          neutral={votes.neutral}
-          bad={votes.bad}
+          votes={votes}
           totalVotes={totalVotes}
           positiveRate={positiveRate}
         />
