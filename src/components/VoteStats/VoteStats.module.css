@@ -1,0 +1,13 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+}
+
+.container p {
+    margin: 8px 0;
+    font-size: 18px;
+    color: #333;
+}

@@ -1,3 +1,5 @@
+import css from './Notification.module.css';
+
 interface NotificationProps {
   message: string;
 }
@@ -5,5 +7,7 @@ interface NotificationProps {
 export default function Notification({
   message,
 }: NotificationProps) {
-  return <p>{message}</p>;
+  return (
+    <p className={css.message}>{message}</p>
+  );
 }

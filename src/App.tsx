@@ -1,19 +1,21 @@
-import { useState } from 'react';
-import CafeInfo from './components/CafeInfo/Cafeinfo';
-import VoteOptions from './components/VoteOptions/VoteOptions';
-import VoteStats from './components/VoteStats/VoteStats';
-import Notification from './components/Notification/Notification';
-import './App.css';
+import { useState } from "react";
+import type { Votes, VoteType } from "./types/votes";
+import CafeInfo from "./components/CafeInfo/CafeInfo";
+import VoteOptions from "./components/VoteOptions/VoteOptions";
+import VoteStats from "./components/VoteStats/VoteStats";
+import Notification from "./components/Notification/Notification";
+
+import css from "./App.module.css";
 
 function App() {
-  const [votes, setVotes] = useState({
+  const [votes, setVotes] = useState<Votes>({
     good: 0,
     neutral: 0,
     bad: 0,
   });
 
-  const handleVote = (type: 'good' | 'neutral' | 'bad') => {
-    setVotes(prevVotes => ({
+  const handleVote = (type: VoteType) => {
+    setVotes((prevVotes) => ({
       ...prevVotes,
       [type]: prevVotes[type] + 1,
     }));
@@ -30,12 +32,10 @@ function App() {
   const totalVotes = votes.good + votes.neutral + votes.bad;
 
   const positiveRate =
-    totalVotes > 0
-      ? Math.round((votes.good / totalVotes) * 100)
-      : 0;
+    totalVotes > 0 ? Math.round((votes.good / totalVotes) * 100) : 0;
 
   return (
-    <div>
+    <div className={css.container}>
       <CafeInfo />
 
       <VoteOptions
